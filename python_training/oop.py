@@ -35,6 +35,18 @@ class Employee:
         if day.weekday() == 5 or day.weekday() == 6:
             return False
         return True
+    
+    def __repr__(self):
+        return "Employee('{}', '{}', '{}')".format(self.first, self.last, self.pay)
+
+    def __str__(self):
+        return "{} - {}".format(self.fullname(), self.email)
+
+    def __add__(self, other):
+        return self.pay + other.pay
+    
+    def __len__(self):
+        return len(self.fullname()) - 1
 
 class Developer(Employee):
     raise_amount = 1.10 # 10% raise
@@ -64,14 +76,15 @@ class Manager(Employee):
             print('-->', emp.fullname())
 
 # instance variables
-emp_1 = Employee('Eve', 'Laina', 90000)
+emp_1 = Employee('Eve', 'Laina', 50000)
 emp_2 = Employee('Temp', 'User', 70000)
 emp_3 = Employee.from_string('Adi-VD-15000')
 dev_1 = Developer('Eve', 'Laina', 90000, 'C')
 dev_2 = Developer('Temp', 'User', 70000, '.NET')
 mgr_1 = Manager('Sue', 'Me', 400000, [dev_1, dev_2, emp_3])
 
-mgr_1.print_emps()
+# mgr_1.print_emps()
 
-# print(dev_1.email)
-# print(dev_1.prog_lang)
+print(repr(emp_1))
+print(emp_1)
+print(len(emp_1))
