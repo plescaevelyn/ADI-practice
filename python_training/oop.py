@@ -8,13 +8,29 @@ class Employee:
         self.first = first
         self.last  = last
         self.pay   = pay
-        self.email = first + "." + last + "@company.com"
 
         Employee.num_of_emps += 1
 
     # self argument should always be included in any instance method belonging to a class
+    @property
     def fullname(self):
         return '{} {}'.format(self.first, self.last)
+
+    @fullname.setter
+    def fullname(self, name):
+        first, last = name.split(' ')
+        self.first  = first
+        self.last   = last
+
+    @fullname.deleter
+    def fullname(self):
+        print('Delete name.')
+        self.first = None
+        self.last  = None
+
+    @property
+    def email(self):
+        return '{}.{}@company.com'.format(self.first, self.last)
 
     def apply_raise(self):
         self.pay = int(self.pay * self.raise_amount)
@@ -79,12 +95,6 @@ class Manager(Employee):
 emp_1 = Employee('Eve', 'Laina', 50000)
 emp_2 = Employee('Temp', 'User', 70000)
 emp_3 = Employee.from_string('Adi-VD-15000')
-dev_1 = Developer('Eve', 'Laina', 90000, 'C')
+dev_1 = Developer('Ju', 'Leah', 90000, 'C')
 dev_2 = Developer('Temp', 'User', 70000, '.NET')
 mgr_1 = Manager('Sue', 'Me', 400000, [dev_1, dev_2, emp_3])
-
-# mgr_1.print_emps()
-
-print(repr(emp_1))
-print(emp_1)
-print(len(emp_1))
