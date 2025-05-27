@@ -1,0 +1,16 @@
+Aatrox
+Amumu
+Ambessa
+Zoe
+Garen
+Illaoi
+Caitlyin
+Lucian
+Yuumi
+Thresh
+Ahri
+Mel
+Orianna
+Morgana
+Lux
+Zyra
