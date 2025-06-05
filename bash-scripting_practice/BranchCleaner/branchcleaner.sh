@@ -38,14 +38,14 @@ get_local_merged_branches() {
     echo ""
     echo "Finding merged local branches..."
     
-    MERGED_LOCAL=$(git branch -r --merged "origin/$BASE_BRANCH" \
-        | grep origin/ \
-        | grep -vE "origin/($(IFS=\|; echo "${PROTECTED_BRANCHES[*]}"))" )
+    MERGED_LOCAL=$(git branch --merged "$BASE_BRANCH" \
+        | grep -vE "^\*|($(IFS=\|; echo "${PROTECTED_BRANCHES[*]}"))")
 
     echo "Merged local branches:"
     echo "$MERGED_LOCAL"
     echo ""
 }
+
 
 get_remote_merged_branches() {
     echo ""
