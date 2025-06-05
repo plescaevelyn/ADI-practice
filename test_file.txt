@@ -1,0 +1,1 @@
+This is a test file used for the branch cleaner - a bash script that is used for cleaning up merged branches.
