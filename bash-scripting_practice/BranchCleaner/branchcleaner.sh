@@ -27,7 +27,6 @@ set_base_branch() {
     fi
 }
 
-
 fetch_remote_branches() {
     echo ""
     echo "Fetching latest remote branches..."
@@ -45,7 +44,6 @@ get_local_merged_branches() {
     echo "$MERGED_LOCAL"
     echo ""
 }
-
 
 get_remote_merged_branches() {
     echo ""
@@ -88,8 +86,8 @@ delete_remote_merged_branches() {
         echo "Skipping remote branch deletion."
     fi
 }
-# === Main ===
 
+# === Main ===
 set_base_branch
 fetch_remote_branches
 
